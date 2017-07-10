@@ -1,0 +1,10 @@
+CC:=g++
+FILE:=hello.cpp
+
+al:$(FILE)
+	$(CC) $^ -o $@
+	./$@
+
+clean:
+	rm al
+

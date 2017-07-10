@@ -1,0 +1,26 @@
+CC = g++
+
+SOURCE = main.cpp \
+	 wys.cpp
+
+OBJECT = $(SOURCE:.cpp=.o)
+
+CFLAG = -c
+
+
+
+%.o:%.s
+	S(CC) $(CFLAG) $< -o $@
+
+.PHONY: all
+all:$(OBJECT)
+	$(CC) $(OBJECT) -o demo.out
+	./demo.out
+	OS:= $(shell uname)
+	ifeq($(OS), Linux)
+		echo "sdfdsf"
+	endif
+
+.PHONY: clean
+clean: 
+	rm -f $(OBJECT) demo.out
